@@ -2,13 +2,11 @@ import cv2
 
 classificador = cv2.CascadeClassifier('cascades\haarcascade_frontalface_default.xml')
 
-imagem = cv2.imread('pessoas/pessoas3.jpg')
-#imagem = cv2.imread('pessoas/beatles.jpg')
-#imagem = cv2.imread('pessoas/faceolho.jpg')
+imagem = cv2.imread('pessoas/pessoas4.jpg')
 
 imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 
-facesDetectadas = classificador.detectMultiScale(imagemCinza, scaleFactor=1.1, minNeighbors=9)
+facesDetectadas = classificador.detectMultiScale(imagemCinza, scaleFactor=1.1, minNeighbors=9, minSize=(30,30))
 # quantidade de faces na imagem
 print(len(facesDetectadas))
 #X, Y, largura e altura da imagem (da face) - cada linha é uma face
